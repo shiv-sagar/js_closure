@@ -446,8 +446,8 @@ const divide = (a, b) => {
 
 let allFunctions = [add, add, add, add, add, sub, sub, multiply, divide];
 
-let a =10;
-let b= 12;
+let a = 10;
+let b = 12;
 for(let operation of allFunctions) {
  a = operation(a, b);
 }
