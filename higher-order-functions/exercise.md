@@ -15,6 +15,17 @@ Create a function called map that takes two inputs:
 Have `map` return a new array filled with numbers that are the result of using the 'callback' function on each element of the input array.
 
 ```js
+function map(arr, callback) {
+  let newArr = [];
+  for (let i = 0; newArr.length < arr.length; i++) {
+    newArr.push(callback(arr[i],i, arr))
+  }
+  return newArr;
+}
+
+function multiplyByTwo(n) {
+  return n * 2
+}
 map([1,2,3,4,5], multiplyByTwo); //-> [2,4,6,8,10]
 multiplyByTwo(1); //-> 2
 multiplyByTwo(2); //-> 4
@@ -25,6 +36,13 @@ The function `forEach` takes an array and a callback, and runs the callback on e
 
 ```js
 var alphabet = '';
+
+function forEach(arr, callback) {
+  for(let i = 0; i < arr.length; i++) {
+    callback(arr[i], i , arr);
+  }
+}
+
 var letters = ['a', 'b', 'c', 'd'];
 forEach(letters, function(char) {
   alphabet += char;
@@ -45,7 +63,7 @@ var add = function(a, b) { return a + b; }
 reduce(nums, add, 0);   //-> 8
 ```
 
-Here's how it works. The function has an "accumulator value" which starts as the `initialValue` and accumulates the output of each loop. The array is iterated over, passing the accumulator and the next array element as arguments to the `callback`. The callback's return value becomes the new accumulator value. The next loop executes with this new accumulator value. In the example above, the accumulator begins at 0. `add(0,4)` is called. The accumulator's value is now 4. Then `add(4, 1)` to make it 5. Finally `add(5, 3)` brings it to 8, which is returned.
+Here's how it works. The function has an "accumulator value" which starts as the `initialValue` and accumulates the output of each loop. The array is iterated over, passing the accumulator and the next array element as arguments to the `callback`. The callback's return value becomes the new     accumulator value. The next loop executes with this new accumulator value. In the example above, the accumulator begins at 0. `add(0,4)` is called. The accumulator's value is now 4. Then `add(4, 1)` to make it 5. Finally `add(5, 3)` brings it to 8, which is returned.
 
 ## Extension 3
 Construct a function intersection that compares input arrays and returns a new array with elements found in all of the inputs. Use reduce!

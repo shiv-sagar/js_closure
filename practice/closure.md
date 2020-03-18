@@ -4,6 +4,12 @@
 
 ```js
 // Your code goes here
+function multiplyBy(num1){
+  function multiply(num2) {
+    return num1 * num2;
+  }
+  return multiply;
+}
 
 const double = multiplyBy(2);
 const final = double(15); // final should be 30
@@ -13,6 +19,12 @@ const final = double(15); // final should be 30
 
 ```js
 // Your code goes here
+function fullName(firstName) {
+  function lName(lastName) { 
+    return firstName + " " + lastName;
+  }
+  return lName;
+}
 
 const name = fullName("Will");
 const final = name("Smith"); // final should be "Will Smith"
@@ -23,6 +35,10 @@ const final = name("Smith"); // final should be "Will Smith"
 ```js
 function isInBetween(a, b) {
   // your code goes here
+  function isInRange(number) {
+    return (number <= b && number >= a);
+  }
+  return isInRange;
 }
 
 const isChild = isInBetween(10, 100);
@@ -30,12 +46,16 @@ isChild(21); // true
 isChild(45); // true
 isChild(103); // false
 ```
-
+ 
 4. Write a function call `letsWishThem` that take one parameter `string` called `greeting` and returns a fucntion that takes another argument called `message`.
 
 ```js
 function letsWishThem(greeting) {
   // your code goes here
+  function concate(message) {
+    return greeting + " " + message;
+  }
+  return concate;
 }
 
 const callWithHey = letsWishThem("Hey");
@@ -48,7 +68,13 @@ callWithHello("How Are You?"); // Hello How Are You?
 
 ```js
 function addGame(gameName) {
-  // your code goes here
+  // your code goes here1
+  let score = 0;
+  function increaseBy1() {
+    console.log(`Score of ${gameName} is ${++score}`)
+  }
+  return increaseBy1;
+
 }
 
 // Output
@@ -63,8 +89,14 @@ cricket(); // Your score of Cricket is 2
 6. Write a function called `getCard` which takes one of these options (club, spade, heart, dimond) returns a function calling that function returns random card (2,3,4,5,6,7,8,9,10,J, Q, K, A) of that suit.
 
 ```js
-function getCard(suit) {
+function addGame(suit) {
   // your code goes here
+  let arr = [2,3,4,5,6,7,8,9,10,J, Q, K, A];
+  function randomCard(){
+    let random = Math.floor(Math.random() * arr.length -1) ; 
+    return `Card is: ${arr[random]} ${suit}}`  
+  };
+  return randomCard;
 }
 
 // Output

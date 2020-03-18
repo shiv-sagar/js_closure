@@ -8,6 +8,7 @@ const lastName = "Stark";
 var knownAs = "no one";
 
 console.log(window.firstName, window.lastName, window.knownAs);
+//output- undefined,undefined, "no one"
 ```
 
 2. Guess the output:
@@ -22,6 +23,9 @@ function fullName(a, b) {
 }
 
 console.log(window.fullName(firstName, lastName));
+
+//output- "AryaStark"
+
 ```
 
 3. Make a Execution Context Diagram for the following JS and write the output.
@@ -33,6 +37,9 @@ fucntion addOne(num){
 var one = addOne(0);
 var two = addOne(1);
 console.log(one, two);
+
+// output- 1
+// 2
 ```
 
 4. Make a Execution Context Diagram for the following JS and write the output.
@@ -44,17 +51,24 @@ fucntion addOne(num){
 }
 var two = addOne(1);
 console.log(one, two);
+
+//output: 1
+//2
+
 ```
 
 5. Make a Execution Context Diagram for the following JS and write the output.
 
 ```js
 console.log(addOne(0));
-fucntion addOne(num){
+function addOne(num){
   return num + 1;
 }
 var two = addOne(1);
 console.log(two);
+
+//output: 1
+//2
 ```
 
 6. Make a Execution Context Diagram for the following JS and write the output.
@@ -66,6 +80,8 @@ const addOne = num => {
 };
 var two = addOne(1);
 console.log(two);
+
+//output: cannot access "addOne" before intitialization.
 ```
 
 7. Make a Execution Context Diagram for the following JS and write the output.
@@ -77,6 +93,8 @@ const addOne = num => {
 };
 var two = addOne(1);
 console.log(two);
+
+output: cannot access addOne before initialization.
 ```
 
 8. What will be the output of the following
@@ -90,6 +108,9 @@ function isAwesome() {
   console.log(awesome);
 }
 isAwesome();
+
+//output : undefined.
+
 ```
 
 9. What will be the output of the following
@@ -103,6 +124,8 @@ function isAwesome() {
   console.log(awesome);
 }
 isAwesome();
+
+//output- true
 ```
 
 10. What will be the output of the following
@@ -116,6 +139,8 @@ function isAwesome() {
   console.log(awesome);
 }
 isAwesome();
+
+//output: undefined
 ```
 
 11. What will be the output of the following
@@ -130,6 +155,8 @@ function fullName(a, b) {
 }
 const name = fullName(firstName, lastName);
 console.log(name);
+
+//output: "AryaStark"
 ```
 
 12. What will be the output of the following
@@ -144,6 +171,8 @@ function fullName(a, b) {
 }
 const name = fullName(firstName, lastName);
 console.log(name);
+
+//output: "AryaStark"
 ```
 
 13. Guess the output of the code below with a reason.
@@ -155,6 +184,8 @@ function sayHello() {
 sayHello();
 
 console.log(name);
+
+//error:error is name is not defined; let is block scoped so i cant access it outside of that block. 
 ```
 
 14. Guess the output of the code below with a reason.
@@ -164,6 +195,7 @@ if (true) {
   var name = "Arya Stark";
 }
 console.log(name);
+//output: "Arya Stark" . var is not declared inside a function it is accessible globally
 ```
 
 15. Guess the output of the code below with a reason.
@@ -173,6 +205,8 @@ if (true) {
   let name = "Arya Stark";
 }
 console.log(name);
+
+//error:error is name is not defined; let is block scoped so i cant access it outside of that block. 
 ```
 
 16. Guess the output of the code below with a reason.
@@ -182,6 +216,8 @@ for (var i = 0; i < 20; i++) {
   //
 }
 console.log(i);
+
+//output: 20, loop will run till 19 , and post increment operator does the increment after storing value of i,outside loop i will b 20.
 ```
 
 17. Guess the output of the code below with a reason.
@@ -191,7 +227,7 @@ for (let i = 0; i < 20; i++) {
   //
 }
 console.log(i);
-```
+//error:i is not defined;because let is block scoped so i cant access it outside of that block. ```
 
 18. Guess the output of the code below with a reason.
 
@@ -220,6 +256,7 @@ function sample() {
   }
   console.log(username);
 }
+//var is function scoped so after invoking(calling) the sample function it will give "John Snow".
 ```
 
 21. Guess the output and the reason behind that.
@@ -231,6 +268,7 @@ function sample() {
   }
   console.log(username);
 }
+//error : username is not definedlet is block scoped
 ```
 
 22. Guess the output and the reason behind that.
@@ -244,6 +282,9 @@ function sample() {
   }
   console.log(username, "second");
 }
+
+//output : John Snow
+//         John Snow second, because var is function scoped ,we can acces it anywhere in the given function;
 ```
 
 23. Guess the output and the reason behind that.
@@ -257,6 +298,8 @@ function sample() {
   }
   console.log(username, "second");
 }
+//ouput : John Snow first
+//        Arya Stark second, let is block scoped so let outside of if block is not related to inside one.
 ```
 
 24. Guess the output and the reason behind that.
@@ -270,6 +313,10 @@ function sample(...args) {
 }
 
 sample("First", "Second", "Third");
+
+// output: "Hello I am First"
+//         "Hello I am Second"
+//         "Hello I am Third"
 ```
 
 25. Guess the output and the reason behind that.
@@ -283,6 +330,10 @@ function sample(...args) {
 }
 
 sample("First", "Second", "Third");
+
+// output: "Hello I am First"
+//         "Hello I am Second"
+//         "Hello I am Third"
 ```
 
 26. Guess the output and the reason behind that.
@@ -304,12 +355,13 @@ if (true) {
 function outer() {
   let movie = "Mad Max: Fury Road";
   function inner() {
-    console.log("I love this movie called ${movie.toUpperCase()}");
+    console.log(`I love this movie called ${movie.toUpperCase()}`);
   }
   inner();
 }
 
 outer();
+//output : "I love this movie called MAD MAX: FURY ROAD"  ,due to closure movie variable is accessible outside its scope.
 ```
 
 28. Guess the output and the reason behind that.
@@ -319,12 +371,15 @@ function outer() {
   let movie = "Mad Max: Fury Road";
   function inner() {
     let movie = "Before Sunrise";
-    console.log("I love this movie called ${movie.toUpperCase()}");
+    console.log(`I love this movie called ${movie.toUpperCase()}`);
   }
   inner();
 }
 
 outer();
+
+//output: I love this movie called BEFORE SUNRISE , BECAUSE inner()will look for the variable named movie inside its function exectution context first ,and if it get it there only ,it will not bubble out.
+
 ```
 
 29. Guess the output and the reason behind that.
@@ -336,7 +391,7 @@ function outer() {
     let movie = "Before Sunrise";
     function extraInner() {
       let movie = "Gone Girl";
-      console.log("I love this movie called ${movie.toUpperCase()}");
+      console.log(`I love this movie called ${movie.toUpperCase()}`);
     }
     extraInner();
   }
@@ -344,6 +399,7 @@ function outer() {
 }
 
 outer();
+//output : "I love this movie called GONE GIRL"
 ```
 
 30. Execute all the functions inside `allFunctions` variable using any loop. (Hint: use for of loop functions are object)
@@ -363,6 +419,13 @@ const divide = (a, b) => {
 };
 
 let allFunctions = [add, sub, multiply, divide];
+
+let a = 20;
+let b = 10;
+
+for(let operation of allFunction) {
+  console.log(operation(a, b));
+}
 ```
 
 31. You have to pass 10 and 12 as initial value and find the final output when you pass the return value of one function as an input to the next function in the array `allFunctions`.
@@ -382,4 +445,11 @@ const divide = (a, b) => {
 };
 
 let allFunctions = [add, add, add, add, add, sub, sub, multiply, divide];
+
+let a =10;
+let b= 12;
+for(let operation of allFunctions) {
+ a = operation(a, b);
+}
+
 ```
